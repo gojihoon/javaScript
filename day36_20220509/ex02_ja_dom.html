@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*input 태그를 블록요소로 지정*/
+        input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    아이디: <input type="text" id="userName"><br><!--text-value: 입력칸 안에 기본값 -->
+    <!-- 버튼을 클릭했을 때 fun1이라는 함수 호출 -->
+    <button onclick="fun1()">아이디입력완료</button><br> 
+    비밀번호: <input type="password" id="password"><!--인라인요소: 자기공간만 사용(span, input)-->
+    비밀번호 입력값 확인:<input type="text" id="password-check">
+    <button onclick="fun2()">비밀번호 체크</button>
+    <!-- 위 버튼 클릭시 fun2 함수를 호출하고 
+        비밀번호 입력값 확인 칸에 비밀번호에서 입력한 값을 출력하기 -->
+    <h1>안녕</h1>
+    <!--블록요소: 한줄전체차지(h, div)-->
+    <h2>반가워요</h2>
+</body>
+    <script>
+        function fun2() {
+            const password = document.getElementById("password").value;
+            document.getElementById("password-check").value = password;
+        }
+        //fun1() 함수 선언
+        function fun1() {
+            console.log("fun1 호출됨");
+            // 아이디에 입력한 값을 가져오기
+            console.log(document.getElementById("userName").value);
+            const userNameTag = document.getElementById("userName"); //태그자체를 넣을 수 있음
+            console.log(userNameTag);
+            const userNameTagValue = document.getElementById("userName").value;//value값만 변수에 담음
+            console.log(userNameTagValue); 
+            console.log(userNameTag.value); //userNameTag의 value값
+        }
+        // console.log(document);
+        // // id=userName 인 요소를 js로 가져옴.
+        // console.log(document.getElementById("userName").value);//().value: input태그안에 value값을 가져올 수 있음.
+        // //querySelector(): 태그
+        // console.log(document.querySelector("input"));
+        // console.log(document.querySelectorAll("input"));
+        // //querySelector(): 특정아이디, 모든 요소 접근(id:#, class:.,태그:x)
+        // console.log(document.querySelector("#userName"));
+
+    </script>
+</head>
