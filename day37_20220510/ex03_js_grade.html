@@ -1,0 +1,30 @@
+<!-- untracked: git이 되지 않음 -->
+<html>
+
+<body>
+    점수 입력: <input type="text" id="score">
+    <button onclick="fun1()">계산</button>
+    <div id="result">학점 출력</div>
+</body>
+<script>
+    function fun1() {
+        let score = Number(document.getElementById("score").value);
+        let result = document.getElementById("result");
+        console.log(typeof(score));
+        let grade = "";
+        if (score >= 0 && score <= 100) {
+            if (score >= 90) {
+                grade = "A";
+            }
+            else if (score >= 80) {
+                grade = "B";
+            }
+            else {
+                grade = "F";
+            }
+        }
+        result.innerHTML = grade;
+    }
+</script>
+
+</html>
