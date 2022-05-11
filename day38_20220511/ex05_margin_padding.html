@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        *{ /* *모든 요소에 적용*/
+            box-sizing: border-box; 
+            /* 이걸쓰니 100px에서 98px로 줄어듬 */
+            /* content-box : 콘텐트 영역을 기준으로 크기를 정함
+            border-box : 테두리를 기준으로 크기를 정함, border, padding, margin을 모두 합산.
+            initial : 기본값으로 설정
+            inherit : 부모 요소의 속성값을 상속 */
+        }
+    /* container 클래스에 속해있는 item 클래스 */
+        .container .item {
+            width: 100px;
+            height: 100px;
+            /* content크기 */
+            background-color: tomato;
+            border: 1px solid black;
+
+            margin: 10px 20px;
+            /* 위아래,좌우 */
+            margin: 10px 20px 30px;
+            /* 위,좌우,아래 */
+            margin: 10px 20px 30px 40px;
+            /* 시계방향: 위,우,아래,왼 */
+            margin-top: 10px;
+            margin-bottom: 20px;
+            margin-left: 30px;
+            margin-right: 40px; 
+            /* 마진:바깥쪽에서 줄어듬 */
+            padding: 10px;
+            /* 패딩:안쪽에서 줄어듬>컨텐츠가 줄어듬 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="container1">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+
+</html>

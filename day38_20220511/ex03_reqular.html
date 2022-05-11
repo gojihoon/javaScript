@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 정규식표현(Regular Expression) -->
+    <!-- 1.영문만 5~10글자 -->
+    <input type="text" id="id1" onblur="id1Check()">
+    <p id="id1-result"></p>
+    <!-- 2.영문 소문자, 숫자 5~10글자 -->
+    <input type="text" id="id2" onblur="id2Check()">
+    <p id="id2-result"></p>
+    <!-- 3.영문소문자(필수), 숫자 5~10글자 -->
+    <input type="text" id="id3" onblur="id3Check()">
+    <p id="id3-result"></p>
+    <!-- 4.영문소문자(필수), 숫자(필수) 5~10글자 -->
+    <input type="text" id="id4" onblur="id4Check()">
+    <p id="id4-result"></p>
+    <!-- 5.영문소문자(필수), 숫자(필수), 영문대문자(필수) 5~10글자 -->
+    <input type="text" id="id5" onblur="id5Check()">
+    <p id="id5-result"></p>
+    <!-- 6.영문소문자(필수), 숫자(필수), 영문대문자(필수), 특수문자(필수, -_!#$) 5~10글자 -->
+    <input type="text" id="id6" onblur="id6Check()">
+    <p id="id6-result"></p>
+    <!-- 7.전화번호형식(000-0000-0000) -->
+    <input type="text" id="id7" onblur="id7Check()">
+    <p id="id7-result"></p>
+    
+</body>
+<script>
+    //1.영문만 5~10글자
+    function id1Check() {
+        const id1 = document.getElementById("id1").value;
+        const id1Result = document.getElementById("id1-result");
+        const exp = /^[a-z]{5,10}$/;
+        if (id1.match(exp)) {
+            id1Result.innerHTML = "일치";
+        } else {
+            id1Result.innerHTML = "불일치";
+        }
+    }
+    //2.영문 소문자, 숫자 5~10글자
+    function id2Check() {
+        const id2 = document.getElementById("id2").value;
+        const id2Result = document.getElementById("id2-result");
+        const exp = /^[a-z\d]{5,10}$/;
+        if (id2.match(exp)) {
+            id2Result.innerHTML = "일치";
+        } else {
+            id2Result.innerHTML = "불일치";
+        }
+    }
+    //?=.*[] : 필수
+    //3.영문소문자(필수), 숫자 5~10글자
+    function id3Check() {
+        const id3 = document.getElementById("id3").value;
+        const id3Result = document.getElementById("id3-result");
+        const exp = /^(?=.*[a-z])[a-z\d]{5,10}$/;
+        if (id3.match(exp)) {
+            id3Result.innerHTML = "일치";
+        } else {
+            id3Result.innerHTML = "불일치";
+        }
+    }
+    //4.영문소문자(필수), 숫자(필수) 5~10글자
+    function id4Check() {
+        const id4 = document.getElementById("id4").value;
+        const id4Result = document.getElementById("id4-result");
+        const exp = /^(?=.*[a-z])(?=.*\d)[a-z\d]{5,10}$/;
+        if (id4.match(exp)) {
+            id4Result.innerHTML = "일치";
+        } else {
+            id4Result.innerHTML = "불일치";
+        }
+    }
+
+    //5.영문소문자(필수), 숫자(필수), 영문대문자(필수) 5~10글자
+    function id5Check() {
+        const id5 = document.getElementById("id5").value;
+        const id5Result = document.getElementById("id5-result");
+        const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{5,10}$/;
+        if (id1.match(exp)) {
+            id1Result.innerHTML = "일치";
+        } else {
+            id1Result.innerHTML = "불일치";
+        }
+    }
+    //6.영문소문자(필수), 숫자(필수), 영문대문자(필수), 특수문자(필수, -_!#$) 5~10글자
+    function id6Check() {
+        const id6 = document.getElementById("id6").value;
+        const id6Result = document.getElementById("id6-result");
+        const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{5,10}$/;
+        if (id6.match(exp)) {
+            id6Result.innerHTML = "일치";
+        } else {
+            id6Result.innerHTML = "불일치";
+        }
+    }
+    //7.전화번호형식(000-0000-0000)
+    function id6Check() {
+        const id6 = document.getElementById("id6").value;
+        const id6Result = document.getElementById("id6-result");
+        const exp = /^\d{3}-\d{4}-\d{4}$/;
+        if (id6.match(exp)) {
+            id6Result.innerHTML = "일치";
+        } else {
+            id6Result.innerHTML = "불일치";
+        }
+    }
+
+</script>
+
+</html>
